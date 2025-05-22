@@ -1,0 +1,32 @@
+﻿@model List<Comic>
+
+@{
+    ViewData["Title"] = "Listado de Comics";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<a asp-action="Create" class="btn btn-primary">Crear nuevo cómic</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comic in Model)
+        {
+            <tr>
+                <td>@comic.IdComic</td>
+                <td>@comic.Nombre</td>
+                <td>
+                    <img src="@comic.Imagen" alt="@comic.Nombre" style="height: 100px;" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
